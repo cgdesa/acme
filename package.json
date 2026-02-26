@@ -10,7 +10,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next strat",
-    "lint": "eslint . --ext .js, .jsx, .ts, .tsx --no--error--unmatched-pattern"
+    "lint": "eslint . --ext .js, .jsx, .ts, .tsx --no--error--unmatched-pattern",
+    "formart": "prettier --write",
+    "formart:check": "prettier --check ."
+
   },
   "dependencies": {
     "next": "^15.5.12",
