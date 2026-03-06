@@ -1,19 +1,19 @@
-import type {Metadata} from 'next';
-import { inter } from'./ui/fonts';
-import '.globals.css';
+import type { Metadata } from 'next';
+import { inter } from './ui/fonts';
+import './global.css';
 
 export const metadata: Metadata = {
-  title: 'ACME'
+  title: 'ACME',
 };
 
-export default function RootLayout(
-  { children }: {children: React.ReactNode }
-) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-   <html>
-    <body className={ inter.className }>
-      { children }
-    </body>
-   </html>
-  )
+    <html>
+      <body className={inter.className}>{children}</body>
+    </html>
+  );
 }
