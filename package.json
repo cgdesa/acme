@@ -2,7 +2,7 @@
   "name": "acme",
   "Version": "0.1.0",
   "private": true,
- "type:": "modules",
+  "type:": "modules",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
