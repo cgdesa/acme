@@ -12,3 +12,53 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+  enum InvoiceStatus {
+    PENDENTE
+    PAGO
+  }
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String 
+
+  @@map("users")
+}
+
+  model Customer {
+    id String @id @default(uuid())
+    name String
+    email String @unique
+    imageUrl String @map("image_url")
+
+    invoices Invoice[]
+
+    @@map("customers")
+  }
+
+  model Invoice {
+    id String @id @default(uuid())
+    amount Int
+    status InvoiceStatus
+    date DateTime
+
+    customerId String @map("customer_id")
+    customer Customer @relation(fields: [customerId], references: [id])
+
+    createAt DateTime @default(now()) @map("create_at")
+    upadate DateTime @updatedAt @map("update_at")
+
+    @@index([customerId])
+
+    @@map("invoices")
+
+  }
+model Revenue {
+   id String @id @default(uuid())
+   month String @unique
+   revunue Int 
+
+   @@map("revenues")
+}
